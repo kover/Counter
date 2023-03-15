@@ -1,24 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Counter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c62-T7-dFC">
+                                <rect key="frame" x="16" y="596.33333333333337" width="176.66666666666666" height="106.66666666666663"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" image="plus" catalog="system">
+                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="increaseCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dYy-vS-eco"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqY-Gk-LdC">
+                                <rect key="frame" x="200.66666666666663" y="596.33333333333337" width="176.33333333333337" height="106.66666666666663"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" image="minus" catalog="system"/>
+                                <connections>
+                                    <action selector="decreaseCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P8s-Uv-W8G"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="poC-PP-s2q">
+                                <rect key="frame" x="16" y="711.66666666666663" width="361" height="106.33333333333337"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray" image="arrow.clockwise" catalog="system"/>
+                                <connections>
+                                    <action selector="resetCounter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xKP-dg-C2Y"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="История изменений:" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Y7c-kl-c45">
+                                <rect key="frame" x="16" y="59.000000000000028" width="355" height="484.66666666666674"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Значение счётчика: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hhZ-al-sjl">
+                                <rect key="frame" x="16" y="554.66666666666663" width="361" height="33.666666666666629"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="poC-PP-s2q" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.125" id="1IQ-aI-NxA"/>
+                            <constraint firstItem="lqY-Gk-LdC" firstAttribute="top" secondItem="hhZ-al-sjl" secondAttribute="bottom" constant="8" symbolic="YES" id="3wO-tU-Bln"/>
+                            <constraint firstItem="poC-PP-s2q" firstAttribute="top" secondItem="c62-T7-dFC" secondAttribute="bottom" constant="8.6666666666666288" id="4VM-gE-Wgj"/>
+                            <constraint firstItem="hhZ-al-sjl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="4WT-xU-4FQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="poC-PP-s2q" secondAttribute="trailing" constant="16" id="79W-1i-2HC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hhZ-al-sjl" secondAttribute="trailing" constant="16" id="90Y-CL-qbo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Y7c-kl-c45" secondAttribute="trailing" constant="22" id="BDi-Zu-mVt"/>
+                            <constraint firstItem="poC-PP-s2q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="G0k-T1-Di1"/>
+                            <constraint firstItem="poC-PP-s2q" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="KTZ-T0-cMF"/>
+                            <constraint firstItem="c62-T7-dFC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Nbx-dG-x9j"/>
+                            <constraint firstItem="Y7c-kl-c45" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Qmd-H1-8yD"/>
+                            <constraint firstItem="lqY-Gk-LdC" firstAttribute="width" secondItem="c62-T7-dFC" secondAttribute="width" id="RPQ-Mh-fHH"/>
+                            <constraint firstItem="hhZ-al-sjl" firstAttribute="firstBaseline" secondItem="Y7c-kl-c45" secondAttribute="baseline" constant="37.666666666666664" symbolType="layoutAnchor" id="UW4-vF-kc2"/>
+                            <constraint firstItem="poC-PP-s2q" firstAttribute="height" secondItem="c62-T7-dFC" secondAttribute="height" id="Xso-XX-PZZ"/>
+                            <constraint firstItem="poC-PP-s2q" firstAttribute="height" secondItem="lqY-Gk-LdC" secondAttribute="height" id="YtD-Dl-dEf"/>
+                            <constraint firstItem="poC-PP-s2q" firstAttribute="top" secondItem="lqY-Gk-LdC" secondAttribute="bottom" constant="8.6666666666666288" id="ndj-lX-ycZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lqY-Gk-LdC" secondAttribute="trailing" constant="16" id="oFd-mc-3Pa"/>
+                            <constraint firstItem="lqY-Gk-LdC" firstAttribute="leading" secondItem="c62-T7-dFC" secondAttribute="trailing" constant="8" symbolic="YES" id="owh-Kd-49e"/>
+                            <constraint firstItem="Y7c-kl-c45" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="vw0-BY-h24"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="counterLabel" destination="hhZ-al-sjl" id="XaP-88-Kvn"/>
+                        <outlet property="historyTextView" destination="Y7c-kl-c45" id="QgJ-YP-bis"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="32.824427480916029" y="-2.1126760563380285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
+        <image name="minus" catalog="system" width="128" height="26"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

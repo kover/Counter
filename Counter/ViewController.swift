@@ -8,12 +8,14 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    // MARK: Outlets and properties
 
-    @IBOutlet weak var counterLabel: UILabel!
-    @IBOutlet weak var historyTextView: UITextView!
+    @IBOutlet private weak var counterLabel: UILabel!
+    @IBOutlet private weak var historyTextView: UITextView!
     
     private var _counter = 0
-    var counter: Int {
+    private var counter: Int {
         set {
             _counter = newValue
             updateCounter()
@@ -21,30 +23,14 @@ class ViewController: UIViewController {
         get { return _counter }
     }
     
+    // MARK: Initialization
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-
-    @IBAction func increaseCounter(_ sender: UIButton) {
-        counter += 1
-        appendHistoryMessage("Значение изменено на +1")
     }
     
-    @IBAction func decreaseCounter(_ sender: UIButton) {
-        if (counter == 0) {
-            appendHistoryMessage("Попытка уменьшить значение счётчика ниже 0")
-            return
-        }
-        counter -= 1
-        appendHistoryMessage("Значение изменено на -1")
-    }
+    // MARK: Private logic
     
-    @IBAction func resetCounter(_ sender: UIButton) {
-        counter = 0
-        appendHistoryMessage("Значение сброшено")
-    }
-
     private func updateCounter() {
         counterLabel.text = "Значение счётчика: \(counter)"
     }
@@ -57,6 +43,27 @@ class ViewController: UIViewController {
         let location = historyTextView.text.count - 1
         let bottom = NSMakeRange(location, 1)
         historyTextView.scrollRangeToVisible(bottom)
+    }
+    
+    // MARK: Actions block
+    
+    @IBAction private func resetCounter(_ sender: UIButton) {
+        counter = 0
+        appendHistoryMessage("Значение сброшено")
+    }
+    
+    @IBAction private func increaseCounter(_ sender: UIButton) {
+        counter += 1
+        appendHistoryMessage("Значение изменено на +1")
+    }
+    
+    @IBAction private func decreaseCounter(_ sender: UIButton) {
+        if (counter == 0) {
+            appendHistoryMessage("Попытка уменьшить значение счётчика ниже 0")
+            return
+        }
+        counter -= 1
+        appendHistoryMessage("Значение изменено на -1")
     }
     
 }
